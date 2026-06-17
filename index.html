@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东宏远集团药业有限公司 | Winnerway Pharma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        }
+        body {
+            background: #f0f7f3;
+            color: #1a3a2f;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .hero {
+            background: linear-gradient(135deg, #0b5c41 0%, #1e8f68 100%);
+            color: white;
+            padding: 2rem 2rem 1.5rem;
+        }
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .hero .tagline {
+            font-size: 1rem;
+            border-left: 4px solid #ffcd7e;
+            padding-left: 1rem;
+            opacity: 0.95;
+        }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+            background: rgba(255,255,255,0.12);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+        }
+        .lang-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            background: #f5faf7;
+            padding: 0.5rem 2rem;
+            border-bottom: 1px solid #dce8e2;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid #1e8f68;
+            padding: 4px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1e8f68;
+            transition: 0.2s;
+        }
+        .lang-btn.active {
+            background: #1e8f68;
+            color: white;
+        }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: white;
+            border-bottom: 2px solid #e0ede6;
+            padding: 0 0.5rem;
+            list-style: none;
+        }
+        .nav-tabs li {
+            list-style: none;
+        }
+        .nav-tabs a {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #4a6a5e;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .nav-tabs a:hover {
+            color: #e67e22;
+            background: #fef9ef;
+            border-radius: 30px 30px 0 0;
+        }
+        .tab-content {
+            display: none;
+            padding: 2rem 2rem 2.5rem;
+            animation: fadeIn 0.25s ease;
+        }
+        #company {
+            display: block;
+        }
+        .tab-content:target {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b5c41;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #e67e22;
+            padding-left: 1rem;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+        .card {
+            background: #fafefb;
+            padding: 1.2rem;
+            border-radius: 20px;
+            border: 1px solid #e2efea;
+        }
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+        .badge-list span {
+            background: #e8f3ef;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1a6b4f;
+        }
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .img-card {
+            background: #fafefb;
+            border: 1px solid #e2efea;
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .img-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+        .img-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            background: #eef2f0;
+            display: block;
+        }
+        .img-card p {
+            padding: 0.4rem 0.2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1e8f68;
+        }
+        .contact-block {
+            background: #eef4f0;
+            border-radius: 24px;
+            padding: 1.8rem;
+            text-align: center;
+        }
+        footer {
+            background: #0a3f31;
+            color: #c0ddd0;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.75rem;
+        }
+        .zh { display: inline; }
+        .en { display: none; }
+        body.lang-en .zh { display: none; }
+        body.lang-en .en { display: inline; }
+        body.lang-en .zh-only { display: none !important; }
+        body.lang-en .en-only { display: block !important; }
+        body.lang-zh .en-only { display: none !important; }
+        .en-only { display: none; }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 1.3rem; }
+            .nav-tabs a { padding: 0.5rem 0.8rem; font-size: 0.75rem; }
+            .tab-content { padding: 1rem; }
+            .img-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+        }
+    </style>
+</head>
+<body class="lang-zh">
+<div class="container">
+
+    <!-- ========== HEADER ========== -->
+    <div class="hero">
+        <h1>
+            <span class="zh">广东宏远集团药业有限公司</span>
+            <span class="en">Guangdong Winnerway Group Pharmaceutical Co., Ltd.</span>
+        </h1>
+        <div class="tagline">
+            <span class="zh">创新 · 质量 · 关怀 —— 从珠三角出发</span>
+            <span class="en">Innovation · Quality · Care — From the Pearl River Delta</span>
+        </div>
+        <div class="hero-meta">
+            <span class="zh">📅 成立于1994年 | GMP认证 | 高新技术企业 | 🍎 儿药品牌“果果” 1998年创立</span>
+            <span class="en">📅 Founded 1994 | GMP Certified | High-tech Enterprise | 🍎 "Guoguo" since 1998</span>
+        </div>
+    </div>
+
+    <!-- ========== LANGUAGE BAR ========== -->
+    <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('zh')">🇨🇳 中文</button>
+        <button class="lang-btn" onclick="setLang('en')">🇬🇧 English</button>
+    </div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <ul class="nav-tabs">
+        <li><a href="#company"><span class="zh">🏢 公司简介</span><span class="en">🏢 Company</span></a></li>
+        <li><a href="#products"><span class="zh">💊 主营业务</span><span class="en">💊 Business</span></a></li>
+        <li><a href="#capacity"><span class="zh">📦 产能与规模</span><span class="en">📦 Capacity</span></a></li>
+        <li><a href="#rd"><span class="zh">🔬 科研与知识产权</span><span class="en">🔬 R&D & IP</span></a></li>
+        <li><a href="#group"><span class="zh">🏀 集团与体育</span><span class="en">🏀 Group & Sports</span></a></li>
+        <li><a href="#contact"><span class="zh">📞 联系我们</span><span class="en">📞 Contact</span></a></li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: 公司简介 -->
+    <!-- ============================================================ -->
+    <div id="company" class="tab-content">
+        <h2 class="section-title"><span class="zh">公司简介</span><span class="en">Company Profile</span></h2>
+        <div class="grid-2col">
+            <div>
+                <p class="zh"><strong>广东宏远集团药业有限公司</strong> 成立于1994年12月20日，前身为1991年成立的东莞市生物化学制药厂。是集研发、生产、销售于一体的国家GMP认证高新技术企业。公司坐落于东莞市东城樟村工业区，占地面积约4.2万平方米，2024年员工112人。</p>
+                <p class="en"><strong>Guangdong Winnerway Group Pharmaceutical Co., Ltd.</strong> was founded on Dec 20, 1994. A national GMP-certified high-tech enterprise integrating R&D, production and sales. Located in Dongguan's Zhangcun Industrial Zone, covering ~42,000 m². 112 employees (2024).</p>
+                <div class="badge-list">
+                    <span class="zh">✔ 39个国家准字号药品</span><span class="en">✔ 39 National Drug Approvals</span>
+                    <span class="zh">✔ 药品生产/批发/零售/进出口许可</span><span class="en">✔ Full Licenses</span>
+                    <span class="zh">✔ 对外投资7家企业</span><span class="en">✔ 7 Invested Companies</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="zh">🏭 集团背景</h3><h3 class="en">🏭 Group Background</h3>
+                <p class="zh">广东宏远集团经过近二十年发展，形成以工业区开发为基础，房地产、药业为龙头，体育产业、服务业、国际贸易等多元化格局。“粤宏远”为东莞市首家上市公司（深交所），总资产22亿元。</p>
+                <p class="en">Guangdong Winnerway Group has grown into a diversified conglomerate with industrial parks, real estate, pharmaceuticals, sports, and international trade. "Yue Hongyuan" is the first listed company in Dongguan (SZSE).</p>
+            </div>
+        </div>
+
+        <!-- 公司环境栏: company_front, company_env, 新增 company_office -->
+        <h3 class="zh">🏢 公司环境</h3><h3 class="en">🏢 Company Environment</h3>
+        <div class="img-grid">
+            <div class="img-card"><img src="company_front.png" alt="公司正面" onerror="this.style.display='none'"><p>公司正面</p></div>
+            <div class="img-card"><img src="company_env.jpg" alt="公司环境" onerror="this.style.display='none'"><p>厂区环境</p></div>
+            <div class="img-card"><img src="company_office.jpg" alt="办公室环境" onerror="this.style.display='none'"><p>办公室环境</p></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: 主营业务 -->
+    <!-- ============================================================ -->
+    <div id="products" class="tab-content">
+        <h2 class="section-title"><span class="zh">主营业务 · 产品与品牌</span><span class="en">Core Business · Products & Brands</span></h2>
+        <div class="grid-2col">
+            <div>
+                <p class="zh">公司专注于<strong>五大治疗领域</strong>：儿科用药、心脑血管类、抗病毒类、消化系统用药、免疫增强剂。旗下儿药品牌<strong>“果果”</strong>创立于1998年，专注儿童健康。</p>
+                <p class="en">We focus on <strong>five therapeutic areas</strong>: Pediatric, Cardiovascular, Antiviral, Digestive, and Immune enhancers. Our pediatric brand <strong>"Guoguo"</strong> was established in 1998.</p>
+                <div class="badge-list">
+                    <span>果糖二磷酸钠</span><span>注射用炎琥宁</span><span>辅酶Q10胶囊</span>
+                    <span>小儿氨酚黄那敏</span><span>注射用奥美拉唑</span>
+                </div>
+                <p class="zh">拥有大容量注射剂、冻干粉针、片剂、颗粒剂、硬胶囊、生化提取、中药提取、散剂及原料药等多条GMP生产线。</p>
+                <p class="en">We have multiple GMP lines: large volume injections, lyophilized powders, tablets, granules, capsules, biochemical extraction, TCM extraction, and APIs.</p>
+            </div>
+            <div class="card">
+                <h3 class="zh">📌 核心产品</h3><h3 class="en">📌 Key Products</h3>
+                <ul style="margin-left:1rem;">
+                    <li class="zh">· 果糖二磷酸钠注射液 (50ml/100ml)</li><li class="en">· Sodium Fructose Diphosphate Inj.</li>
+                    <li class="zh">· 注射用炎琥宁 (80mg/200mg)</li><li class="en">· Potassium Sodium Dehydroandrographolide Succinate</li>
+                    <li class="zh">· 辅酶Q10胶囊 · 甘露聚糖肽片</li><li class="en">· Coenzyme Q10 · Mannatide Tablets</li>
+                    <li class="zh">· 小儿氨酚黄那敏颗粒 · 琥乙红霉素颗粒</li><li class="en">· Pediatric Paracetamol · Erythromycin Granules</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="zh">💊 产品展示</h3><h3 class="en">💊 Product Gallery</h3>
+        <div class="img-grid">
+            <div class="img-card"><img src="product-Sodium Fructose Diphosphate50ml.jpg" alt="果糖二磷酸钠50ml"><p>果糖二磷酸钠 50ml</p></div>
+            <div class="img-card"><img src="product-Sodium Fructose Diphosphate100ml.jpg" alt="果糖二磷酸钠100ml"><p>果糖二磷酸钠 100ml</p></div>
+            <div class="img-card"><img src="product_Potassium Sodium DehydroandrographolideSuccinate80mg.jpg" alt="炎琥宁80mg"><p>注射用炎琥宁 80mg</p></div>
+            <div class="img-card"><img src="product_Potassium Sodium DehydroandrographolideSuccinate200mg.jpg" alt="炎琥宁200mg"><p>注射用炎琥宁 200mg</p></div>
+            <div class="img-card"><img src="product_Ubidecarenone.jpg" alt="辅酶Q10"><p>辅酶Q10胶囊</p></div>
+            <div class="img-card"><img src="product_Mannatide.jpg" alt="甘露聚糖肽"><p>甘露聚糖肽片</p></div>
+            <div class="img-card"><img src="product_coughing.jpg" alt="小儿化痰止咳"><p>小儿化痰止咳颗粒</p></div>
+            <div class="img-card"><img src="product_erythromycin.jpg" alt="琥乙红霉素"><p>琥乙红霉素颗粒</p></div>
+            <!-- 新增 product_ODM 和 product_Pediatric -->
+            <div class="img-card"><img src="product_ODM.jpg" alt="小儿氨酚黄那敏(ODM)"><p>小儿氨酚黄那敏颗粒</p></div>
+            <div class="img-card"><img src="product_Pediatric.jpg" alt="小儿氨酚黄那敏(果果)"><p>小儿氨酚黄那敏颗粒(果果)</p></div>
+            <div class="img-card"><img src="product_Omeprazole Sodium.jpg" alt="奥美拉唑"><p>注射用奥美拉唑钠</p></div>
+            <div class="img-card"><img src="product_Pantoprazole Sodium.jpg" alt="泮托拉唑"><p>注射用泮托拉唑钠</p></div>
+            <div class="img-card"><img src="product_ADENOSINE CYCLOPHOSPHATE.jpg" alt="环磷腺苷"><p>注射用环磷腺苷</p></div>
+            <div class="img-card"><img src="product_Diammonium Glycyrrhizinate.jpg" alt="甘草酸二铵"><p>注射用甘草酸二铵</p></div>
+            <div class="img-card"><img src="product_Foscarnet Sodium.jpg" alt="膦甲酸钠"><p>注射用膦甲酸钠</p></div>
+            <div class="img-card"><img src="product_Sodium Nitroprusside.jpg" alt="硝普钠"><p>注射用硝普钠</p></div>
+            <div class="img-card"><img src="product_Hepatocyte.jpg" alt="促肝细胞"><p>促肝细胞生长素颗粒</p></div>
+            <div class="img-card"><img src="product_Uzbekistan.jpg" alt="乌兹别克斯坦"><p>果糖二磷酸钠 (出口)</p></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: 产能与规模 -->
+    <!-- ============================================================ -->
+    <div id="capacity" class="tab-content">
+        <h2 class="section-title"><span class="zh">公司产能与规模</span><span class="en">Capacity & Scale</span></h2>
+        <div class="grid-2col">
+            <div>
+                <p class="zh">公司占地面积4.2万平方米，厂房建筑面积1.28万平方米。拥有多条GMP认证生产线，产能规模居于行业前列。</p>
+                <p class="en">The company covers 42,000 m² with 12,800 m² of factory space. Multiple GMP-certified production lines with leading capacity.</p>
+                <ul style="margin-top:0.8rem; list-style:none;">
+                    <li class="zh">✅ 颗粒剂：<strong>1.45亿袋/年</strong></li><li class="en">✅ Granules: <strong>145M bags/year</strong></li>
+                    <li class="zh">✅ 片剂：<strong>1亿片/年</strong></li><li class="en">✅ Tablets: <strong>100M units/year</strong></li>
+                    <li class="zh">✅ 硬胶囊：<strong>8000万粒/年</strong></li><li class="en">✅ Capsules: <strong>80M/year</strong></li>
+                    <li class="zh">✅ 大容量注射剂：<strong>500万瓶/年</strong></li><li class="en">✅ Large Volume Inj.: <strong>5M bottles/year</strong></li>
+                    <li class="zh">✅ 冻干粉针剂：<strong>1700万瓶/年</strong></li><li class="en">✅ Freeze-dried: <strong>17M vials/year</strong></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="zh">📊 投资与布局</h3><h3 class="en">📊 Investment & Footprint</h3>
+                <p class="zh">对外投资7家企业，包括广东揭西农村商业银行、广东宏远集团产业发展有限公司等。积极参与市场招投标，业务覆盖全国及海外。</p>
+                <p class="en">Invested in 7 companies including Guangdong Jiexi Rural Commercial Bank, Winnerway Industrial Development, etc. Active in public tenders nationwide and overseas.</p>
+            </div>
+        </div>
+
+        <h3 class="zh">🏭 生产设备</h3><h3 class="en">🏭 Production Equipment</h3>
+        <div class="img-grid">
+            <div class="img-card"><img src="equipment_aseptic_line.jpg" alt="无菌灌装线"><p>无菌灌装生产线</p></div>
+            <div class="img-card"><img src="equipment_freeze_dryer.jpg" alt="冷冻干燥机"><p>真空冷冻干燥机</p></div>
+            <div class="img-card"><img src="equipment_solid_dosage.jpg" alt="固体制剂1"><p>固体制剂设备</p></div>
+            <div class="img-card"><img src="equipment_solid_dosage2.jpg" alt="固体制剂2"><p>固体制剂设备</p></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: 科研与知识产权 (R&D) -->
+    <!-- ============================================================ -->
+    <div id="rd" class="tab-content">
+        <h2 class="section-title"><span class="zh">科研与知识产权</span><span class="en">R&D & Intellectual Property</span></h2>
+        <div class="grid-2col">
+            <div>
+                <p class="zh">公司设有“广东省小儿用药制剂工程技术研究中心”和“东莞市化学药物工程技术研究开发中心”。2022年被评为“国家知识产权优势企业”。</p>
+                <p class="en">We host the "Guangdong Pediatric Drug Formulation Engineering Research Center" and "Dongguan Chemical Drug R&D Center". Awarded "National Intellectual Property Advantage Enterprise" in 2022.</p>
+                <div class="badge-list">
+                    <span>📜 27项专利</span><span>💻 5项软件著作权</span><span>🏷️ 33项商标</span>
+                </div>
+                <p class="zh"><strong>代表性专利：</strong>“一种辅酶Q10的环糊精玉米淀粉包合物及其制备方法和应用” (202510806574)；“一种注射用硝普钠组合物及其制备方法” (CN202211081618.6)</p>
+                <p class="en"><strong>Representative patents:</strong> "Cyclodextrin‑corn starch inclusion complex of coenzyme Q10" (Appl. 202510806574); "Sodium nitroprusside composition for injection" (Grant CN202211081618.6).</p>
+            </div>
+            <div class="card">
+                <h3 class="zh">🐁 实验动物许可证</h3><h3 class="en">🐁 Animal License</h3>
+                <p>SYXK(粤)2023-0006 (有效期至2028年)</p>
+                <p class="zh">普通环境（豚鼠、兔）222㎡ | 屏障环境（小鼠）133㎡</p>
+                <p class="en">Conventional (guinea pig, rabbit) 222㎡ | Barrier (mouse) 133㎡</p>
+            </div>
+        </div>
+
+        <!-- R&D 栏: equipment_hplc, equipment_atomic, 新 equipment_GC (移除 company_env) -->
+        <h3 class="zh">🔬 实验室设备</h3><h3 class="en">🔬 Laboratory Equipment</h3>
+        <div class="img-grid">
+            <div class="img-card"><img src="equipment_hplc.jpg" alt="HPLC"><p>高效液相色谱仪</p></div>
+            <div class="img-card"><img src="equipment_atomic.jpg" alt="原子吸收"><p>原子吸收光谱仪</p></div>
+            <div class="img-card"><img src="equipment_GC.jpg" alt="气相色谱"><p>气相色谱仪</p></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: 集团与体育文化 -->
+    <!-- ============================================================ -->
+    <div id="group" class="tab-content">
+        <h2 class="section-title"><span class="zh">集团与体育文化</span><span class="en">Group & Sports Culture</span></h2>
+        <div class="grid-2col">
+            <div>
+                <p class="zh">广东宏远篮球俱乐部是国内最早的职业篮球俱乐部之一，培养了易建联等多位国际篮球明星。截至2026年，宏远队共夺得<strong>11次</strong>CBA总冠军，是CBA历史上夺冠次数最多的球队，被誉为“十一冠王”。</p>
+                <p class="en">Guangdong Winnerway Basketball Club is one of the earliest professional clubs in China, having cultivated stars like Yi Jianlian. As of 2026, the team has won <strong>11 CBA championships</strong>—the most in league history.</p>
+                <p class="zh">集团以体育传播企业形象，形成了“以人为本，团结健康”的独特企业文化，宏远篮球已成为东莞城市文化的重要品牌。</p>
+                <p class="en">The group promotes its image through sports, fostering a unique "people-oriented, united and healthy" culture. Winnerway Basketball is a key brand of Dongguan's city identity.</p>
+            </div>
+            <div class="card">
+                <h3 class="zh">🏆 粤宏远 · 上市公司</h3><h3 class="en">🏆 Yue Hongyuan · Listed Company</h3>
+                <p class="zh">1994年7月在深圳证券交易所上市，总资产22亿元，净资产13亿元，总股本4.5亿股。</p>
+                <p class="en">Listed on the Shenzhen Stock Exchange in July 1994. Total assets: 2.2 billion RMB, net assets: 1.3 billion RMB, total share capital: 450 million shares.</p>
+            </div>
+        </div>
+        <div style="margin-top:1.5rem; background:#f5faf7; padding:1rem; border-radius:20px; text-align:center;">
+            <span style="font-size:2rem;">🏀</span>
+            <p style="font-weight:600; margin-top:0.2rem;" class="zh">“十一冠王” —— 广东宏远篮球俱乐部</p>
+            <p style="font-weight:600; margin-top:0.2rem;" class="en">"Eleven-time Champion" — Guangdong Winnerway Basketball Club</p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB 6: 联系我们 -->
+    <!-- ============================================================ -->
+    <div id="contact" class="tab-content">
+        <h2 class="section-title"><span class="zh">联系我们</span><span class="en">Contact Us</span></h2>
+        <div class="contact-block">
+            <p style="font-size:1.2rem; font-weight:600; color:#0b5c41;">📬 广东宏远集团药业有限公司</p>
+            <p style="margin-top:0.8rem;">📞 WhatsApp: <strong>+86 15625080213</strong></p>
+            <p>✉️ Email: <strong>cenyongbin8@gmail.com</strong></p>
+            <p class="zh">📍 广东省东莞市东城樟村工业区</p>
+            <p class="en">📍 Zhangcun Industrial Zone, Dongcheng District, Dongguan, Guangdong, China</p>
+            <p style="margin-top:1rem; font-size:0.85rem; opacity:0.8;" class="zh">欢迎海内外客户洽谈合作</p>
+            <p style="margin-top:1rem; font-size:0.85rem; opacity:0.8;" class="en">Welcome global partners for cooperation</p>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p class="zh">© 2026 广东宏远集团药业有限公司 —— 坚持GMP规范，守护生命健康。</p>
+        <p class="en">© 2026 Guangdong Winnerway Group Pharmaceutical Co., Ltd. — GMP Excellence for Global Health.</p>
+    </footer>
+</div>
+
+<script>
+    // 语言切换
+    function setLang(lang) {
+        document.body.className = 'lang-' + lang;
+        var btns = document.querySelectorAll('.lang-btn');
+        btns.forEach(function(btn) {
+            var isZh = btn.innerText.includes('中文');
+            var isEn = btn.innerText.includes('English');
+            if ((lang === 'zh' && isZh) || (lang === 'en' && isEn)) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        localStorage.setItem('winnerwayLang', lang);
+    }
+
+    // 恢复语言偏好
+    var savedLang = localStorage.getItem('winnerwayLang');
+    if (savedLang === 'en' || savedLang === 'zh') {
+        setLang(savedLang);
+    } else {
+        setLang('zh');
+    }
+
+    // 处理:target 初始显示
+    (function() {
+        if (window.location.hash) {
+            var target = document.querySelector(window.location.hash);
+            if (target) {
+                document.querySelectorAll('.tab-content').forEach(function(el) {
+                    el.style.display = 'none';
+                });
+                target.style.display = 'block';
+            }
+        }
+    })();
+</script>
+
+</body>
+</html>
